@@ -1,0 +1,67 @@
+
+.avatar-selection-page {
+  display: none;
+  max-width: 400px;
+}
+
+.content-container.show-avatar .avatar-selection-page {
+  display: block;
+  grid-column: 3 / 4;
+}
+
+.content-container.show-avatar {
+  grid-template-columns: auto 1fr auto;
+}
+
+
+.avatar-selection-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.current-avatar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.avatar-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-options button {
+  margin: 5px;
+}
+
+.predefined-avatars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.upload-avatar {
+  text-align: center;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}

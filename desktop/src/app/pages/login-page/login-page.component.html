@@ -1,0 +1,82 @@
+<div class="login-page">
+    <div class="content-container">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title i18n>PolyDiff</mat-card-title>
+                <mat-card-subtitle i18n>Login or register to continue</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-tab-group dynamicHeight mat-stretch-tabs="false" mat-align-tabs="center">
+                    <mat-tab i18n-label label="Login">
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <mat-form-field>
+                                <mat-label i18n>Username</mat-label>
+                                <input matInput formControlName="username" />
+                                <mat-error>{{ getUsernameErrorMessage(AuthAction.Login) }}</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label i18n>Password</mat-label>
+                                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+                                <button
+                                    mat-icon-button
+                                    matSuffix
+                                    type="button"
+                                    (click)="hidePassword = !hidePassword"
+                                    [attr.aria-label]="'hidePassword password'"
+                                    [attr.aria-pressed]="hidePassword"
+                                >
+                                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                                </button>
+                                <mat-error>{{ getPasswordErrorMessage(AuthAction.Login) }}</mat-error>
+                            </mat-form-field>
+
+                            <button mat-raised-button color="primary" [disabled]="isSendingRequest || loginForm.status !== 'VALID'" (click)="login()">
+                                <ng-container i18n>Login</ng-container>
+                            </button>
+                            <mat-error> {{ errorMessageLogin }} </mat-error>
+                        </form>
+                    </mat-tab>
+                    <mat-tab i18n-label label="Register">
+                        <form [formGroup]="registerForm" (ngSubmit)="register()">
+                            <mat-form-field>
+                                <mat-label i18n>Email</mat-label>
+                                <input matInput placeholder="pat@example.com" formControlName="email" />
+                                <mat-error>{{ getEmailErrorMessage() }}</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label i18n>Username</mat-label>
+                                <input matInput #username maxlength="10" formControlName="username" pattern="^[a-z0-9]*$" appForceLowercase />
+                                <mat-hint align="end">{{ username.value.length }} / 10</mat-hint>
+                                <mat-error>{{ getUsernameErrorMessage(AuthAction.Register) }}</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-label i18n>Password</mat-label>
+                                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+                                <button
+                                    mat-icon-button
+                                    matSuffix
+                                    type="button"
+                                    (click)="hidePassword = !hidePassword"
+                                    [attr.aria-label]="'hidePassword password'"
+                                    [attr.aria-pressed]="hidePassword"
+                                >
+                                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                                </button>
+
+                                <mat-error>{{ getPasswordErrorMessage(AuthAction.Register) }}</mat-error>
+                            </mat-form-field>
+                            <app-avatar-selection (avatarChanged)="handleAvatarChange($event)"> </app-avatar-selection>
+                            <mat-error> {{ errorMessageRegister }} </mat-error>
+                            <button mat-raised-button color="primary" [disabled]="isSendingRequest || registerForm.status !== 'VALID'">
+                                <ng-container i18n>Register</ng-container>
+                            </button>
+                        </form>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

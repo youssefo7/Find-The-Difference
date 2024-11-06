@@ -1,0 +1,4 @@
+export const DEFAULT_RADIUS = 3;
+export const DEFAULT_GROUPS_VALUE = -1;
+export const HARD_DIFFERENCES_NGROUPS_MIN = 7;
+export const HARD_DIFFERENCES_PROPORTION_MAX = 0.15;

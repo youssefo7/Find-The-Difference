@@ -1,0 +1,38 @@
+<mat-card class="profile-card">
+    <mat-card-header
+        ><mat-card-title class="mat-typography">
+            <h2 i18n mat-dialog-title>Settings</h2>
+        </mat-card-title></mat-card-header
+    >
+    <mat-card-content class="profile-card-content">
+        <mat-card-subtitle i18n>Username</mat-card-subtitle>
+        <div>
+            <mat-form-field>
+                <input matInput type="text" [(ngModel)]="username" maxlength="10" pattern="^[a-z0-9]*$" appForceLowercase />
+                <mat-hint align="end">{{ username.length }} / 10</mat-hint>
+                <mat-error i18n>Username invalid</mat-error>
+                <mat-hint i18n>Disconnected if changed</mat-hint>
+            </mat-form-field>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-card-subtitle i18n>Locale</mat-card-subtitle>
+        <app-locale-switcher (valueChange)="locale = $event"></app-locale-switcher>
+        <mat-divider></mat-divider>
+        <mat-card-subtitle i18n>Theme</mat-card-subtitle>
+        <div class="theme-color-container">
+            <button
+                *ngFor="let color of themeColors"
+                mat-mini-fab
+                [style.background-color]="color"
+                (click)="setPrimaryColor(color)"
+                [ngClass]="{
+                    selected: color === primaryColor
+                }"
+            ></button>
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button i18n mat-raised-button color="primary" [disabled]="!canSave" (click)="onSave()">Save</button>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,59 @@
+<div class="user-list-item">
+    <mat-list-item (click)="onOpenProfile()">
+        <div class="user-name">
+            <img *ngIf="!this.user.avatarUrl" src="./assets/images/icons/avatar1.png" alt="User icon" />
+            <img *ngIf="this.user.avatarUrl" [src]="this.user.avatarUrl" alt="User icon" />
+            <div class="name">{{ user.username }}</div>
+        </div>
+    </mat-list-item>
+    <button
+        *ngIf="isFriend"
+        mat-icon-button
+        color="warn"
+        aria-label="Remove friend"
+        (click)="removeFriend()"
+        i18n-matTooltip
+        matTooltip="Remove friend"
+    >
+        <mat-icon>person_remove</mat-icon>
+    </button>
+    <button
+        *ngIf="!isFriend && !isOutgoingRequestPending && !isIncomingRequestPending && !isCurrentUser"
+        mat-icon-button
+        color="primary"
+        aria-label="Add friend"
+        (click)="addFriend()"
+        i18n-matTooltip
+        matTooltip="Add friend"
+    >
+        <mat-icon>person_add</mat-icon>
+    </button>
+    <span i18n-matTooltip matTooltip="Friend request pending">
+        <button *ngIf="isOutgoingRequestPending && !isCurrentUser" mat-icon-button color="primary" aria-label="Request sent" disabled>
+            <mat-icon>hourglass_empty</mat-icon>
+        </button>
+    </span>
+    <div *ngIf="isIncomingRequestPending && !isCurrentUser" class="incoming-req">
+        <button
+            mat-icon-button
+            class="accept-button"
+            aria-label="Accepter ami"
+            i18n-matTooltip
+            matTooltip="Accept friend request"
+            (click)="acceptFriendRequest()"
+        >
+            <mat-icon>check_circle</mat-icon>
+        </button>
+        <button
+            mat-icon-button
+            color="warn"
+            aria-label="Refuser ami"
+            i18n-matTooltip
+            matTooltip="Reject friend request"
+            (click)="declineFriendRequest()"
+        >
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+</div>
+<mat-divider></mat-divider>

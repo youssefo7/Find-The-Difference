@@ -1,0 +1,22 @@
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+    padding-right: 20px;
+    max-width: 16.5%;
+    overflow-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+    text-align: start;
+}

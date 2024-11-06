@@ -1,0 +1,10 @@
+<div
+    [ngClass]="{
+        'deactivate-user-select': drawService.isPressed
+    }"
+    (mousemove)="drawService.onMouseMove($event)"
+    (mouseup)="drawService.onMouseUp($event)"
+>
+    <app-title-bar></app-title-bar>
+    <app-creation-canvases></app-creation-canvases>
+</div>

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title i18n>Create a new chat</h2>
+<mat-dialog-content class="dialog">
+    @if (!!chatNameControl) {
+        <mat-form-field appearance="fill">
+            <mat-label i18n>Chat Name</mat-label>
+            <input cdkFocusInitial matInput [maxLength]="maxChatNameLength" [formControl]="chatNameControl" />
+            <mat-hint>{{ chatNameLength }}/{{ maxChatNameLength }}</mat-hint>
+            @if (chatNameControl.hasError('required')) {
+                <mat-error i18n>Chat name cannot be empty.</mat-error>
+            }
+        </mat-form-field>
+    }
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close i18n>Cancel</button>
+    <button mat-button [mat-dialog-close]="chatName" [disabled]="!isEmptyChatName" i18n>Create</button>
+</mat-dialog-actions>

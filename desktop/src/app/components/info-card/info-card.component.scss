@@ -1,0 +1,56 @@
+.info-card {
+    max-width: 352px;
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 1rem;
+}
+
+.difficulty-stars {
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.difficulty-stars img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.thumbnail-container {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.preview-image {
+    width: 100%;
+}
+
+h1 {
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+mat-grid-tile {
+    text-transform: uppercase;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mat-icon {
+    margin: 0rem 10px;
+}
+
+.name-and-differences {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}

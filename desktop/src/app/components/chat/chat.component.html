@@ -1,0 +1,97 @@
+<button class="chat-icon" mat-icon-button (click)="toggleChatVisibility()">
+    <mat-icon>chat</mat-icon>
+</button>
+
+<app-popout-window class="window" *ngIf="chatService.isPopupVisible" (popoutOpened)="onPopoutOpened()" (popoutClosed)="onPopoutClosed()">
+    <mat-card class="chat">
+        <div *ngIf="!chatService.isRoomVisible">
+            <mat-card-header>
+                <mat-card-title i18n>Your chats</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="available-chats">
+                <mat-nav-list>
+                    <mat-list>
+                        <mat-list-item *ngFor="let chat of chatService.joinedChats">
+                            <button matRipple (click)="openChat(chat.chatId)">
+                                {{ chat.name }}
+                            </button>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-nav-list>
+            </mat-card-content>
+        </div>
+
+        <div *ngIf="chatService.isRoomVisible" class="chat-room">
+            <mat-card-header>
+                <mat-icon class="back-button" (click)="toSelectionScreen()">arrow_back</mat-icon>
+                <h1 class="chat-name">{{ chatService.currentChat.name }}</h1>
+                <button
+                    mat-icon-button
+                    (click)="leaveChat(chatService.currentChat.chatId)"
+                    matTooltip="Leave Chat"
+                    *ngIf="!chatService.isGeneralChat && !chatService.isChatCreator && !chatService.isInGame"
+                >
+                    <mat-icon>exit_to_app</mat-icon>
+                </button>
+                <button
+                    mat-icon-button
+                    (click)="deleteChat(chatService.currentChat.chatId)"
+                    matTooltip="Delete Chat"
+                    *ngIf="chatService.isChatCreator"
+                >
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-header>
+            <mat-card-content class="messages" #scrollMe>
+                <div
+                    *ngFor="let message of chatService.messages"
+                    class="message-container"
+                    [ngClass]="{
+                        'my-message': message.sender === username,
+                        'opponent-message': message.sender !== username && !message.isFromServer,
+                        'server-message': message.isFromServer
+                    }"
+                >
+                    <div *ngIf="message.isFromServer" class="server-message-content">
+                        <div class="message-body">{{ localeService.currentLocale === 'en' ? message.content : message.frenchContent }}</div>
+                    </div>
+
+                    <div *ngIf="message.sender !== username && !message.isFromServer" class="opponent-message-content">
+                        <div class="message-content-with-avatar">
+                            <div class="message-text">
+                                <div class="username">{{ message.sender }}</div>
+                                <div *ngIf="!message.isStickerGif" class="message-body">
+                                    {{ message.content }}
+                                </div>
+                                <img *ngIf="message.isStickerGif" [src]="message.content" class="message-body" />
+                            </div>
+                            <img [src]="message.senderAvatar" class="profile-picture" />
+                        </div>
+                    </div>
+
+                    <div *ngIf="message.sender === username" class="my-message-content">
+                        <div *ngIf="!message.isStickerGif" class="message-body">
+                            {{ message.content }}
+                        </div>
+                        <img *ngIf="message.isStickerGif" [src]="message.content" class="message-body" />
+                    </div>
+                </div>
+            </mat-card-content>
+
+            <div class="message-input-container">
+                <mat-card-actions>
+                    <mat-form-field appearance="fill" class="message-input">
+                        <mat-label i18n>Send message</mat-label>
+                        <input matInput [maxlength]="100" (keydown.enter)="sendMessage()" (blur)="trimMessage()" [(ngModel)]="message" />
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" (click)="sendMessage()" [disabled]="!message.trim()" i18n>Send</button>
+                </mat-card-actions>
+            </div>
+        </div>
+        <mat-card-actions class="chat-controls" *ngIf="!chatService.isRoomVisible && !isPopoutOpen">
+            <button mat-raised-button color="primary" (click)="listChats()" i18n>Join Chat</button>
+            <button mat-raised-button color="primary" (click)="createChat()" i18n>Create Chat</button>
+        </mat-card-actions>
+    </mat-card>
+</app-popout-window>

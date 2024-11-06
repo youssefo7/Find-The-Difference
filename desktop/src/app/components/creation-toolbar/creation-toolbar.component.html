@@ -1,0 +1,239 @@
+<mat-card appearance="outlined">
+    <mat-card-content class="card-content">
+        <section class="toolbar-section">
+            <span class="toolbar-section-title" i18n>Actions</span>
+            <ng-container *ngTemplateOutlet="chooseImageButton"></ng-container>
+            <ng-container *ngTemplateOutlet="swapCanvasButton"></ng-container>
+            <div class="undo-redo-container">
+                <ng-container *ngTemplateOutlet="undoButton"></ng-container>
+                <ng-container *ngTemplateOutlet="redoButton"></ng-container>
+            </div>
+        </section>
+        <mat-divider [vertical]="true"></mat-divider>
+        <section class="toolbar-section">
+            <span class="toolbar-section-title" i18n>Tools</span>
+            <div class="tools-line">
+                <ng-container *ngTemplateOutlet="penToolButton"></ng-container>
+                <ng-container *ngTemplateOutlet="eraserToolButton"></ng-container>
+                <ng-container *ngTemplateOutlet="rectangleToolButton"></ng-container>
+            </div>
+            <div class="tools-line">
+                <ng-container *ngTemplateOutlet="ellipseToolButton"></ng-container>
+                <ng-container *ngTemplateOutlet="bucketToolButton"></ng-container>
+                <ng-container *ngTemplateOutlet="sprayToolButton"></ng-container>
+            </div>
+        </section>
+        <mat-divider [vertical]="true"> </mat-divider>
+        <section class="toolbar-section">
+            <span class="toolbar-section-title" i18n>Colors</span>
+            <ng-container *ngTemplateOutlet="colorInput"></ng-container>
+        </section>
+        <mat-divider [vertical]="true"> </mat-divider>
+        <section class="toolbar-section">
+            <span class="toolbar-section-title" i18n>Settings</span>
+            <ng-container *ngTemplateOutlet="lineWidthSlider"></ng-container>
+            <ng-container *ngTemplateOutlet="sprayPerSecondSlider"></ng-container>
+        </section>
+        <mat-divider [vertical]="true"> </mat-divider>
+        <section class="toolbar-section">
+            <span class="toolbar-section-title" i18n>Differences</span>
+            <ng-container *ngTemplateOutlet="enlargementRadiusInput"></ng-container>
+            <ng-container *ngTemplateOutlet="createGameTemplateButton"></ng-container>
+        </section>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #chooseImageButton>
+    <button
+        i18n
+        mat-raised-button
+        color="primary"
+        class="raised-button"
+        matTooltip="BMP {{ bmpBitDepth }}-bit de taille {{ imageWidth }}x{{ imageHeight }}"
+        (click)="bothFileInput.click()"
+    >
+        Choose an image for both
+    </button>
+    <input hidden (change)="fileSelected.emit($event)" #bothFileInput type="file" accept="image/bmp" />
+</ng-template>
+
+<ng-template #swapCanvasButton>
+    <button mat-raised-button color="primary" class="raised-button" (click)="drawService.swapCanvas()">
+        <mat-icon>swap_horiz</mat-icon>
+        <span i18n>Swap canvas</span>
+    </button>
+</ng-template>
+
+<ng-template #undoButton>
+    <button
+        i18n-matTooltip
+        mat-fab
+        color="primary"
+        matTooltip="Undo&#13;&#10;(Ctrl + Z)"
+        matTooltipClass="multiline-tooltip"
+        [disabled]="!drawService.canUndo"
+        (click)="drawService.undoAction()"
+    >
+        <mat-icon>undo</mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #redoButton>
+    <button
+        i18n-matTooltip
+        mat-fab
+        color="primary"
+        matTooltip="Redo&#13;&#10;(Ctrl + Shift + Z)"
+        matTooltipClass="multiline-tooltip"
+        [disabled]="!drawService.canRedo"
+        (click)="drawService.redoAction()"
+    >
+        <mat-icon>redo</mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #penToolButton>
+    <button
+        mat-fab
+        matTooltip="Crayon"
+        class="toolbar-icon-button"
+        color="primary"
+        (click)="drawService.selectedTool = drawingTools.Pen"
+        [disabled]="drawService.selectedTool === drawingTools.Pen"
+    >
+        <mat-icon>draw</mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #eraserToolButton>
+    <button
+        mat-fab
+        i18n-matTooltip
+        matTooltip="Eraser"
+        class="toolbar-icon-button"
+        color="primary"
+        (click)="drawService.selectedTool = drawingTools.Eraser"
+        [disabled]="drawService.selectedTool === drawingTools.Eraser"
+    >
+        <svg width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"
+            />
+        </svg>
+    </button>
+</ng-template>
+
+<ng-template #rectangleToolButton>
+    <button
+        mat-fab
+        i18n-matTooltip
+        matTooltip="Rectangle&#13;&#10;Shift + Click = Square"
+        matTooltipClass="multiline-tooltip"
+        class="toolbar-icon-button"
+        color="primary"
+        (click)="drawService.selectedTool = drawingTools.Rectangle"
+        [disabled]="drawService.selectedTool === drawingTools.Rectangle"
+    >
+        <mat-icon>highlight_alt</mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #ellipseToolButton>
+    <button
+        mat-fab
+        i18n-matTooltip
+        matTooltip="Ellipse&#13;&#10;Shift + Click = Circle"
+        matTooltipClass="multiline-tooltip"
+        class="toolbar-icon-button"
+        color="primary"
+        (click)="drawService.selectedTool = drawingTools.Ellipse"
+        [disabled]="drawService.selectedTool === drawingTools.Ellipse"
+    >
+        <mat-icon>panorama_fish_eye</mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #bucketToolButton>
+    <button
+        mat-fab
+        i18n-matTooltip
+        matTooltip="Paint Bucket"
+        class="toolbar-icon-button"
+        color="primary"
+        (click)="drawService.selectedTool = drawingTools.Bucket"
+        [disabled]="drawService.selectedTool === drawingTools.Bucket"
+    >
+        <mat-icon>format_color_fill</mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #sprayToolButton>
+    <button
+        mat-fab
+        i18n-matTooltip
+        matTooltip="Spray Paint"
+        class="toolbar-icon-button"
+        color="primary"
+        (click)="drawService.selectedTool = drawingTools.Spray"
+        [disabled]="drawService.selectedTool === drawingTools.Spray"
+    >
+        <mat-icon
+            ><svg width="25" height="25" fill="currentColor" viewBox="0 0 24 30">
+                <g>
+                    <path
+                        d="M10.832 9.747l-1.531-2.296c-.188-.282-.505-.451-.844-.451h-4.914c-.339 0-.656.169-.844.451l-1.531 2.296c-.109.165-.168.359-.168.557v11.695c0 .553.448 1.001 1.001 1.001h7.998c.553 0 1.001-.448 1.001-1.001v-11.695c0-.198-.059-.392-.168-.557zM8 7h-4v-2.011c0-1.098.891-1.989 1.989-1.989h2.011v4zM10 10h-8M10 10h-8"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        fill="none"
+                    />
+                    <circle cx="17" cy="7" r="1" />
+                    <circle cx="21" cy="5" r="1" />
+                    <circle cx="21" cy="9" r="1" />
+                    <circle cx="21" cy="1" r="1" />
+                    <circle cx="13" cy="5" r="1" />
+                    <circle cx="17" cy="3" r="1" />
+                </g>
+            </svg>
+        </mat-icon>
+    </button>
+</ng-template>
+
+<ng-template #lineWidthSlider>
+    <div class="slider-container">
+        <span class="label"><ng-container i18n>Line Width</ng-container> : {{ drawService.lineWidth }}</span>
+        <mat-slider class="slider" #lineWidhtSlider thumbLabel step="1" min="1" max="50" aria-label="units" [disabled]="!lineWidthSliderEnabled">
+            <input matSliderThumb [(ngModel)]="drawService.lineWidth" />
+        </mat-slider>
+    </div>
+</ng-template>
+
+<ng-template #colorInput>
+    <app-color-input [(color)]="drawService.color"></app-color-input>
+</ng-template>
+
+<ng-template #sprayPerSecondSlider>
+    <div class="slider-container">
+        <span class="label"><ng-container i18n>Spray Per Second</ng-container> : {{ drawService.sprayPerSecond }}</span>
+        <mat-slider class="slider" thumbLabel step="1" min="1" max="100" aria-label="units" [disabled]="!sprayPerSecondSliderEnabled">
+            <input matSliderThumb [(ngModel)]="drawService.sprayPerSecond" />
+        </mat-slider>
+    </div>
+</ng-template>
+
+<ng-template #enlargementRadiusInput>
+    <mat-form-field>
+        <mat-label i18n>Enlargement radius</mat-label>
+        <mat-select [(value)]="imageService.radius">
+            <mat-option *ngFor="let value of possibleRadiusValues" [value]="value">{{ value }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-template>
+
+<ng-template #createGameTemplateButton>
+    <button i18n mat-raised-button class="create-game-template-button raised-button" [disabled]="modalOpen" (click)="refreshDiff.emit()">
+        Create game template
+    </button>
+</ng-template>

@@ -1,0 +1,68 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#left-container {
+    flex: 1;
+    display: flex;
+}
+
+#right-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#left-container,
+#right-container {
+    padding: 40px;
+}
+
+#text-statistic-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    top: 0;
+}
+
+.demo-chart {
+    width: 100%;
+    height: 100%;
+}
+
+mat-tab-group {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+app-statistic-card {
+    width: 100%;
+}
+
+app-profile-card {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.card-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.history-card {
+    flex: 1;
+    height: 560px;
+}
+
+app-settings-card {
+    width: calc(0.25 * (100% - 60px));
+}

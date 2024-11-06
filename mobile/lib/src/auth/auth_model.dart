@@ -1,0 +1,1 @@
+enum HttpAuthenticationType { login, register }

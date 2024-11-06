@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+    <div class="logo-container">
+        <button
+            class="icon-button"
+            routerLink="/"
+            i18n-matTooltip
+            matTooltip="Home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [disabled]="isActive('/')"
+            [matTooltipDisabled]="isActive('/')"
+        >
+            <img src="./assets/images/icons/main500x500.png" class="logo" alt="Logo" height="70px" width="70px" />
+        </button>
+    </div>
+    <div class="button-container" *ngIf="profile$ | async as profile">
+        <div id="balance">
+            <mat-icon>paid</mat-icon>
+            <p>{{ userBalance }}</p>
+        </div>
+        <div id="avatar-container" [matMenuTriggerFor]="menu">
+            <img src="{{ profile?.avatarUrl }}" class="user-icon" alt="User icon" />
+        </div>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item aria-label="test" [routerLink]="['/profile', profile?.username]">
+                <mat-icon>account_circle</mat-icon>
+                <span i18n>Profile</span>
+            </button>
+            <button mat-menu-item (click)="openDialog()">
+                <mat-icon>settings</mat-icon>
+                <span i18n>Admin configurations</span>
+            </button>
+            <button color="warn" id="logout-button" mat-menu-item (click)="logOut()">
+                <mat-icon color="warn">exit_to_app</mat-icon>
+                <span color="warn" i18n>Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+<app-chat></app-chat>

@@ -1,0 +1,50 @@
+.container {
+    width: 640px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+    padding-right: 20px;
+    max-width: 16.5%;
+    overflow-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding-bottom: 3%;
+}
+
+.table-container {
+    max-height: 75vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+th.mat-mdc-header-cell:first-of-type,
+td.mat-mdc-cell:first-of-type,
+td.mat-mdc-footer-cell:first-of-type {
+    padding-left: 1px;
+}

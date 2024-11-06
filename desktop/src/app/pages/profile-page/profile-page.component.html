@@ -1,0 +1,43 @@
+<app-waiting-spinner *ngIf="isLoading"></app-waiting-spinner>
+<div *ngIf="!isLoading" id="container">
+    <app-title-bar></app-title-bar>
+    <div class="card-container">
+        <div id="left-container">
+            <app-profile-card></app-profile-card>
+        </div>
+        <div id="right-container">
+            <div id="text-statistic-container">
+                <app-statistic-card title="Games played" [value]="statistics.gamesPlayed" description="games" icon="games"></app-statistic-card>
+                <app-statistic-card title="Games won" [value]="statistics.gamesWon" description="won" icon="emoji_events"></app-statistic-card>
+                <app-statistic-card
+                    title="Differences found (%)"
+                    [value]="getFoundDifferencesRatio()"
+                    description="%"
+                    icon="pie_chart"
+                ></app-statistic-card>
+                <app-statistic-card
+                    title="Average time"
+                    [value]="getAverageGameDuration()"
+                    [description]="timeDescription"
+                    icon="timer"
+                ></app-statistic-card>
+            </div>
+            <div class="card-container">
+                <app-settings-card></app-settings-card>
+                <mat-card class="history-card">
+                    <mat-tab-group mat-stretch-tabs="true">
+                        <mat-tab i18n-label label="Connexion history">
+                            <app-account-history></app-account-history>
+                        </mat-tab>
+                        <mat-tab i18n-label label="Game history">
+                            <app-profile-game-history class="history"></app-profile-game-history>
+                        </mat-tab>
+                        <mat-tab i18n-label label="Replay history">
+                            <app-replay-list class="history"></app-replay-list>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="gameplay-section">
+    <div class="game-header">
+        <h1 *ngIf="isGameStarted" class="differences-found-display">
+            <mat-card
+                appearance="outlined"
+                class="difference-stars-container"
+                *ngFor="let team of teams"
+                [ngClass]="{
+                    'my-differences': team.includes(gameplayService.username),
+                    highlight: highlight(team.includes(gameplayService.username))
+                }"
+            >
+                <div class="player-names">
+                    <span *ngFor="let username of team; let i = index">
+                        <app-user-item [username]="username" [isSelf]="username === gameplayService.username"></app-user-item>
+                        <!-- {{ username + (username === gameplayService.username ? ' ' : '')
+                        }} -->
+                        <!-- <ng-container i18n *ngIf="username === gameplayService.username">(you)</ng-container> -->
+                    </span>
+                </div>
+                <div class="differences">
+                    <span *ngIf="!!team[0]"
+                        ><ng-container i18n>Differences found</ng-container>&nbsp;{{
+                            gameplayService.playerData[team[0]].differencesFoundCount
+                        }}</span
+                    >
+                    <mat-icon class="outlined-star">star</mat-icon>
+                </div>
+            </mat-card>
+        </h1>
+        <app-timer *ngIf="isGameStarted"></app-timer>
+    </div>
+    <div class="game-body" [style.display]="isGameStarted ? 'flex' : 'none'">
+        <mat-card appearance="outlined" class="image-column">
+            <div class="canvas-wrapper">
+                <div
+                    class="error-message"
+                    *ngIf="gameplayService.showError.left"
+                    [style.left]="gameplayService.showError.left.x + 'px'"
+                    [style.top]="gameplayService.showError.left.y + 'px'"
+                >
+                    <p i18n>Error</p>
+                </div>
+                <canvas #firstCanvas [width]="imageWidth" [height]="imageHeight" (click)="gameplayService.mouseHitDetect($event, 'left')"> </canvas>
+                @if (gameplayService.isObserver) {
+                    <app-hint-canvas [observer]="gameplayService.username"></app-hint-canvas>
+                    <app-observer-draw-hint (coordEvent)="setHint($event)"></app-observer-draw-hint>
+                } @else {
+                    @for (observer of observers; track $index) {
+                        <app-hint-canvas [observer]="observer"></app-hint-canvas>
+                    }
+                }
+            </div>
+        </mat-card>
+        <mat-card appearance="outlined" class="image-column">
+            <div class="canvas-wrapper">
+                <div
+                    class="error-message"
+                    *ngIf="gameplayService.showError.right"
+                    [style.left]="gameplayService.showError.right.x + 'px'"
+                    [style.top]="gameplayService.showError.right.y + 'px'"
+                >
+                    <p i18n>Error</p>
+                </div>
+                <canvas #secondCanvas [width]="imageWidth" [height]="imageHeight" (click)="gameplayService.mouseHitDetect($event, 'right')"> </canvas>
+                @if (gameplayService.isObserver) {
+                    <app-hint-canvas [observer]="gameplayService.username"></app-hint-canvas>
+                    <app-observer-draw-hint (coordEvent)="setHint($event)"></app-observer-draw-hint>
+                } @else {
+                    @for (observer of observers; track $index) {
+                        <app-hint-canvas [observer]="observer"></app-hint-canvas>
+                    }
+                }
+            </div>
+        </mat-card>
+    </div>
+    <div [style.display]="isGameStarted ? 'none' : 'flex'">
+        <app-player-discriminator [gameMode]="gameMode"></app-player-discriminator>
+    </div>
+    <div class="game-footer" [style.display]="isGameStarted ? 'flex' : 'none'">
+        @if (!gameplayService.isInReplayMode) {
+            <div class="buttons-container">
+                @if (!gameplayService.isObserver) {
+                    <button mat-raised-button [disabled]="hintService.buyDisabled" (click)="buyHint()" i18n>
+                        <mat-icon>paid</mat-icon>
+                        {{ hintPrice }} buy Hint
+                    </button>
+                }
+                <button i18n class="button" mat-raised-button color="warn" routerLink="/home">Quit game</button>
+                @if (gameplayService.timeConfig.cheatModeAllowed && !gameplayService.isObserver) {
+                    <button i18n mat-raised-button (click)="toggleCheatMode()">toggle cheat mode</button>
+                }
+                @if (gameplayService.isObserver) {
+                    <mat-card>
+                        <mat-card-header> <mat-card-title i18n>Send Hint To:</mat-card-title></mat-card-header>
+                        <mat-card-content>
+                            <mat-radio-group ngDefaultControl [(ngModel)]="hintTarget">
+                                <mat-radio-button class="radius-radio-button" color="primary" [value]="undefined" i18n> Everyone </mat-radio-button>
+                                <mat-radio-button
+                                    class="radius-radio-button"
+                                    color="primary"
+                                    *ngFor="let value of gameplayService.players"
+                                    [value]="value"
+                                >
+                                    <app-user-item [username]="value"></app-user-item>
+                                    <!-- {{ value }} -->
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </mat-card-content>
+                    </mat-card>
+                }
+            </div>
+        }
+    </div>
+</div>

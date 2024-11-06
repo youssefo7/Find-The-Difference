@@ -1,0 +1,183 @@
+@import 'src/styles/_palette.scss';
+
+.lobby-wrapper {
+    margin-top: 30px;
+    min-width: 450px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .mat-card-header {
+        background-color: map-get($primary-palette, 900);
+        color: map-get($primary-palette, 900);
+    }
+
+    .mat-card-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+        color: map-get($primary-palette, 50);
+    }
+
+    .team-selection,
+    .player-list,
+    .player-requests {
+        margin: 20px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            background-color: var(--primary-700);
+            color: var(--primary-contrast-700);
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .team-radio-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .radius-radio-button {
+                margin: 0 5px;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+        .team-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+            h3.team-title {
+                margin: 0;
+                color: map-get($primary-palette, contrast-500);
+            }
+        }
+    }
+
+    .accepted-players-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            color: var(--primary-contrast-700);
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: map-get($primary-palette, 400);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .player-requests-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: var(--primary-500);
+            color: var(--primary-contrast-500);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+    }
+
+    .start-game {
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 200px;
+            padding: 15px 0;
+            font-size: 18px;
+            background-color: rgb(106, 203, 3);
+            color: white;
+        }
+
+        button[disabled] {
+            background-color: #cccccc;
+        }
+    }
+
+    .error-message {
+        color: map-get($primary-palette, A400);
+        margin-top: 10px;
+    }
+
+    .centered-text {
+        text-align: center;
+    }
+}
+
+.accepted-player {
+    background-color: var(--primary-100);
+}
+
+.discriminated-player {
+    background-color: var(--primary-200);
+}
+
+.checked {
+    background-color: var(--primary-700);
+    color: var(--primary-contrast-700);
+}
+
+.accepted-player:hover,
+.discriminated-player:hover {
+    background-color: map-get($primary-palette, 300);
+}
+
+button[disabled] {
+    background-color: map-get($primary-palette, 50);
+    color: map-get($primary-palette, contrast-50);
+}
+
+.waiting-for-acceptance {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 35%;
+    margin: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    color: var(--primary-500);
+}
+
+.waiting-text {
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 90%;
+    margin: 25px;
+}
+
+img {
+    border-radius: 50%;
+    width: 32px;
+    margin-right: 10px;
+}

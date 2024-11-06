@@ -1,0 +1,10 @@
+<canvas
+    #drawCanvas
+    [width]="imageWidth"
+    [height]="imageHeight"
+    (mousedown)="onMouseDown($event)"
+    (mouseup)="onMouseUp($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseleave)="onMouseUp($event)"
+    class="hint-canvas"
+></canvas>

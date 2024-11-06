@@ -1,0 +1,60 @@
+@import 'src/styles/_palette.scss';
+
+.create-game-modal {
+    min-width: 300px;
+    max-width: 500px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-game-modal h2 {
+    width: 100%;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.game-mode-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.game-mode-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+button {
+    display: block;
+    width: calc(100% - 10px);
+    margin: 5px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--primary-500);
+    color: var(--primary-contrast-500);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        box-shadow 0.2s;
+}
+
+button:hover {
+    background-color: var(--primary-600);
+    color: var(--primary-contrast-600);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    background-color: var(--primary-700);
+    color: var(--primary-contrast-700);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

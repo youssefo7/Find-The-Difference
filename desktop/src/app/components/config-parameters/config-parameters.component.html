@@ -1,0 +1,28 @@
+<label class="config-text">
+    <ng-container i18n>Initial countdown time</ng-container>:
+    <span style="color: #3f51b5">{{ config.totalTime }} s </span>
+</label>
+<div class="config-slider">
+    <span class="small-text">{{ minGameTime }}</span>
+    <mat-slider color="primary" [min]="minGameTime" [max]="maxGameTime" [step]="5" #ngSlider
+        ><input matSliderThumb [(ngModel)]="config.totalTime" #ngSliderThumb="matSliderThumb" />
+    </mat-slider>
+    <span class="small-text">{{ maxGameTime }}</span>
+</div>
+
+@if (showBonusTimeSlider) {
+    <label class="config-text">
+        <ng-container i18n>Bonus with the discovery of a difference</ng-container>:
+        <span style="color: green"> + {{ config.rewardTime }} s</span></label
+    >
+    <div class="config-slider">
+        <span class="small-text">{{ minTimeJump }}</span>
+        <mat-slider color="primary" [max]="maxTimeJump" [min]="minTimeJump" [step]="5" #ngSlider
+            ><input matSliderThumb [(ngModel)]="config.rewardTime" #ngSliderThumb="matSliderThumb" />
+        </mat-slider>
+        <span class="small-text">{{ maxTimeJump }}</span>
+    </div>
+}
+<div class="config-slider">
+    <mat-checkbox color="primary" [(ngModel)]="config.cheatModeAllowed" i18n> Allow Cheat Mode </mat-checkbox>
+</div>

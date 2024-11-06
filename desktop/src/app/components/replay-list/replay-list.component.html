@@ -1,0 +1,30 @@
+<mat-card appearance="outlined" class="container">
+    <div class="table-container">
+        <table mat-table [dataSource]="replays">
+            <ng-container matColumnDef="gameMode">
+                <th mat-header-cell *matHeaderCellDef i18n>Game Mode</th>
+                <td mat-cell *matCellDef="let replay">{{ gameModeToString(replay.gameMode) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="time">
+                <th mat-header-cell *matHeaderCellDef i18n>Time</th>
+                <td mat-cell *matCellDef="let replay">{{ getReplayDate(replay.events[0].time) | date: 'medium' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef i18n>Actions</th>
+                <td mat-cell *matCellDef="let replay">
+                    <button color="primary" mat-fab [disabled]="replay.buttonDisabled" (click)="startReplay(replay)">
+                        <mat-icon >play_arrow</mat-icon>
+                    </button>
+                    <button color="primary" mat-fab [disabled]="replay.buttonDisabled" (click)="deleteReplay(replay)">
+                        <mat-icon >delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let replay; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</mat-card>

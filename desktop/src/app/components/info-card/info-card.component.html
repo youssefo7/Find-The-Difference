@@ -1,0 +1,20 @@
+<mat-card appearance="outlined" class="info-card">
+    <mat-card-header>
+        <div class="name-and-differences">
+            <mat-card-title class="card-title">{{ gameTemplate.name }}</mat-card-title>
+            <span i18n>Number of differences: {{ gameTemplate.nGroups }}</span>
+        </div>
+        <div class="difficulty-stars">
+            <img alt="Star" src="./assets/images/star.svg" />
+            <img alt="Star" *ngIf="gameTemplate.difficulty === 'hard'" src="./assets/images/star.svg" />
+        </div>
+    </mat-card-header>
+    <div class="thumbnail-container">
+        <img mat-card-image class="preview-image" alt="Preview image" [src]="gameTemplate.firstImage" [ngStyle]="{ 'aspect-ratio': aspectRatio }" />
+    </div>
+    <mat-card-actions class="action-buttons">
+        <button mat-raised-button color="primary" (click)="button.onClick()" [disabled]="isButtonDisabled()">
+            {{ button.text }}
+        </button>
+    </mat-card-actions>
+</mat-card>

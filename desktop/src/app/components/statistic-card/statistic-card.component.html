@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{ this.title }}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-icon>{{ this.icon }}</mat-icon>
+        <h1>{{ this.value | number: '1.0-0' }}</h1>
+        <h3>{{ this.description }}</h3>
+    </mat-card-content>
+</mat-card>

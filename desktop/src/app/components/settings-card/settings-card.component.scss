@@ -1,0 +1,31 @@
+.theme-color-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mat-typography {
+    max-height: 90vh;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.profile-card,
+.profile-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+:host ::ng-deep mat-form-field {
+    width: 100%;
+}
+
+.selected {
+    border: 2px dashed black;
+}

@@ -1,0 +1,10 @@
+<app-title-bar></app-title-bar>
+<main>
+    <img src="./assets/images/icons/main500x500.png" class="logo" alt="Game logo" height="400px" width="400px" />
+    <div class="mode-buttons">
+        <button i18n class="mode-button" color="primary" mat-raised-button (click)="openCreateGameModal()">Create a game</button>
+        <button i18n class="mode-button" color="primary" mat-raised-button (click)="joinGamePage()">Join or observe game</button>
+        <button i18n class="mode-button" color="primary" mat-raised-button routerLink="/market">Market</button>
+        <button i18n class="mode-button" color="primary" mat-raised-button routerLink="/creation">Template creation</button>
+    </div>
+</main>

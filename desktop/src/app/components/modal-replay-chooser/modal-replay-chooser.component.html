@@ -1,0 +1,14 @@
+<p><ng-container i18n>Replays</ng-container>:</p>
+@if (replays.length) {
+    <mat-radio-group ngDefaultControl [(ngModel)]="selected">
+        <mat-radio-button class="radius-radio-button" color="primary" *ngFor="let value of replays" [value]="value">
+            <div>{{ gameModeToString(value.gameMode) }}</div>
+            <div>{{ value.events[0].time | date: 'medium' }}</div>
+        </mat-radio-button>
+    </mat-radio-group>
+    <mat-dialog-actions>
+        <button i18n mat-raised-button [disabled]="!selected" (click)="startReplay()">Replay</button>
+    </mat-dialog-actions>
+} @else {
+    <p i18n>No replays</p>
+}

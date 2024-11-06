@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-content *ngIf="profile$ | async as profile">
+        <div id="profile-picture-container">
+            <img [src]="profile?.avatarUrl" class="user-icon" alt="User icon" />
+            <button mat-icon-button class="edit-avatar-button" (click)="openAvatarSelection(profile)">
+                <mat-icon style="color: white">edit</mat-icon>
+            </button>
+        </div>
+        <div id="profile-info">
+            <h4 id="username">{{ profile?.username }}</h4>
+        </div>
+        <mat-divider></mat-divider>
+        <app-friend-list></app-friend-list>
+        <app-friend-requests></app-friend-requests>
+    </mat-card-content>
+</mat-card>

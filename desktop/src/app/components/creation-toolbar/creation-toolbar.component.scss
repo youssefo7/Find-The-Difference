@@ -1,0 +1,66 @@
+.card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.toolbar-section {
+    min-width: 200px;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 1rem;
+}
+
+.toolbar-section-title {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.multiline-tooltip {
+    white-space: pre-line;
+}
+
+mat-divider {
+    align-self: stretch;
+}
+
+.raised-button {
+    align-self: stretch;
+}
+
+.undo-redo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.tools-line {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    & > .slider {
+        width: 100%;
+    }
+}
+
+.create-game-template-button {
+    background-color: green !important;
+    color: white !important;
+}

@@ -1,0 +1,34 @@
+.user-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.incoming-req {
+    display: flex;
+    flex-direction: row;
+}
+
+.accept-button {
+    color: green;
+}
+
+img {
+    border-radius: 50%;
+    width: 32px;
+}
+
+.user-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.name {
+    margin: 0;
+    font-size: 20px;
+}

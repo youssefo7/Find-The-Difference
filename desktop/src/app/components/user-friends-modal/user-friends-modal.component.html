@@ -1,0 +1,14 @@
+<div class="item">
+    <img *ngIf="!userDto.avatarUrl" src="./assets/images/icons/avatar1.png" alt="User icon" />
+    <img *ngIf="userDto.avatarUrl" [src]="userDto.avatarUrl" alt="User icon" />
+    <h2 matLine>{{ data.user.username }}</h2>
+</div>
+<mat-dialog-content class="mat-typography">
+    <mat-list class="user-list">
+        <app-user-list-item *ngFor="let user of friendsList" [user]="getUser(user)" (openProfile)="openUserProfile($event)"></app-user-list-item>
+    </mat-list>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button i18n mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

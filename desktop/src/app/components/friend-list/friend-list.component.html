@@ -1,0 +1,19 @@
+<ng-container *ngIf="friends$ | async as friends">
+    <div class="container">
+        <div class="list-header">
+            <h2 i18n>My friends</h2>
+            <button mat-icon-button color="primary" aria-label="Add friend" class="icon-btn" (click)="openSearchModal()">
+                <mat-icon>person_add</mat-icon>
+            </button>
+        </div>
+        <div class="list-container">
+            <mat-list *ngIf="friends.length > 0">
+                <app-user-list-item
+                    *ngFor="let friend of friends"
+                    [user]="getUser(friend)"
+                    (openProfile)="openUserProfile($event)"
+                ></app-user-list-item>
+            </mat-list>
+        </div>
+    </div>
+</ng-container>

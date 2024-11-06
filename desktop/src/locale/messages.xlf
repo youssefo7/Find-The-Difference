@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="9216117865911519658" datatype="html">
+        <source>Action</source>
+      </trans-unit>
+      <trans-unit id="3973931101896534797" datatype="html">
+        <source>Date</source>
+      </trans-unit>
+      <trans-unit id="9199877918641787434" datatype="html">
+        <source>Choose an avatar</source>
+      </trans-unit>
+      <trans-unit id="1210311024844472546" datatype="html">
+        <source>Upload your avatar</source>
+      </trans-unit>
+      <trans-unit id="262873775602983268" datatype="html">
+        <source>Save Avatar</source>
+      </trans-unit>
+      <trans-unit id="3075574623217282730" datatype="html">
+        <source>Avatar is unchanged.</source>
+      </trans-unit>
+      <trans-unit id="7819314041543176992" datatype="html">
+        <source>Close</source>
+      </trans-unit>
+      <trans-unit id="8428036922046515899" datatype="html">
+        <source>Avatar has been successfully updated.</source>
+      </trans-unit>
+      <trans-unit id="8067978748697133087" datatype="html">
+        <source>Failed to update the avatar.</source>
+      </trans-unit>
+      <trans-unit id="762469253729764164" datatype="html">
+        <source>Only PNG files are accepted. Please select a PNG file.</source>
+      </trans-unit>
+      <trans-unit id="4965792897977255223" datatype="html">
+        <source>Create a new chat</source>
+      </trans-unit>
+      <trans-unit id="8717485366637167467" datatype="html">
+        <source>Chat Name</source>
+      </trans-unit>
+      <trans-unit id="6379972098096350224" datatype="html">
+        <source>Chat name cannot be empty.</source>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+      </trans-unit>
+      <trans-unit id="5674286808255988565" datatype="html">
+        <source>Create</source>
+      </trans-unit>
+      <trans-unit id="1939714319638132083" datatype="html">
+        <source>Join a Chat</source>
+      </trans-unit>
+      <trans-unit id="2950692267829084660" datatype="html">
+        <source>Search for chats</source>
+      </trans-unit>
+      <trans-unit id="7363715972571375082" datatype="html">
+        <source>Your chats</source>
+      </trans-unit>
+      <trans-unit id="8740036082299980043" datatype="html">
+        <source>Send message</source>
+      </trans-unit>
+      <trans-unit id="6490688569532630280" datatype="html">
+        <source>Send</source>
+      </trans-unit>
+      <trans-unit id="8232180433623680615" datatype="html">
+        <source>Join Chat</source>
+      </trans-unit>
+      <trans-unit id="7202747766569731633" datatype="html">
+        <source>Create Chat</source>
+      </trans-unit>
+      <trans-unit id="864997228556165333" datatype="html">
+        <source>Choose color</source>
+      </trans-unit>
+      <trans-unit id="9184198155204403813" datatype="html">
+        <source>Initial countdown time</source>
+      </trans-unit>
+      <trans-unit id="7151060243862631281" datatype="html">
+        <source>Bonus with the discovery of a difference</source>
+      </trans-unit>
+      <trans-unit id="718888338491552402" datatype="html">
+        <source>Allow Cheat Mode</source>
+      </trans-unit>
+      <trans-unit id="6369969117292816758" datatype="html">
+        <source>Choose the first image</source>
+      </trans-unit>
+      <trans-unit id="4531310590867542081" datatype="html">
+        <source>Background</source>
+      </trans-unit>
+      <trans-unit id="3897186305588336497" datatype="html">
+        <source>Foreground</source>
+      </trans-unit>
+      <trans-unit id="6009999434096981702" datatype="html">
+        <source>Duplicate foreground</source>
+      </trans-unit>
+      <trans-unit id="977812094889211284" datatype="html">
+        <source>Choose the second image</source>
+      </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Actions</source>
+      </trans-unit>
+      <trans-unit id="1684734235599362204" datatype="html">
+        <source>Tools</source>
+      </trans-unit>
+      <trans-unit id="5267754967054916445" datatype="html">
+        <source>Colors</source>
+      </trans-unit>
+      <trans-unit id="4930506384627295710" datatype="html">
+        <source>Settings</source>
+      </trans-unit>
+      <trans-unit id="4157270513372784554" datatype="html">
+        <source>Differences</source>
+      </trans-unit>
+      <trans-unit id="4823825586608098955" datatype="html">
+        <source>Choose an image for both</source>
+      </trans-unit>
+      <trans-unit id="3699611011105818512" datatype="html">
+        <source>Swap canvas</source>
+      </trans-unit>
+      <trans-unit id="5486798049921008343" datatype="html">
+        <source>Undo (Ctrl + Z)</source>
+      </trans-unit>
+      <trans-unit id="9087783604492810580" datatype="html">
+        <source>Redo (Ctrl + Shift + Z)</source>
+      </trans-unit>
+      <trans-unit id="8027390660031780542" datatype="html">
+        <source>Eraser</source>
+      </trans-unit>
+      <trans-unit id="1023518251390390099" datatype="html">
+        <source>Rectangle Shift + Click = Square</source>
+      </trans-unit>
+      <trans-unit id="415020091720908918" datatype="html">
+        <source>Ellipse Shift + Click = Circle</source>
+      </trans-unit>
+      <trans-unit id="5982955163202809102" datatype="html">
+        <source>Paint Bucket</source>
+      </trans-unit>
+      <trans-unit id="5156967639310389712" datatype="html">
+        <source>Spray Paint</source>
+      </trans-unit>
+      <trans-unit id="2612596331419172195" datatype="html">
+        <source>Line Width</source>
+      </trans-unit>
+      <trans-unit id="2048315189108980001" datatype="html">
+        <source>Spray Per Second</source>
+      </trans-unit>
+      <trans-unit id="888640125081053976" datatype="html">
+        <source>Enlargement radius</source>
+      </trans-unit>
+      <trans-unit id="3506383510679579049" datatype="html">
+        <source>Create game template</source>
+      </trans-unit>
+      <trans-unit id="5671262522610634315" datatype="html">
+        <source>My friends</source>
+      </trans-unit>
+      <trans-unit id="1550527422138407155" datatype="html">
+        <source>Friend requests</source>
+      </trans-unit>
+      <trans-unit id="3367191408081652509" datatype="html">
+        <source>No games available</source>
+      </trans-unit>
+      <trans-unit id="2108357619234950510" datatype="html">
+        <source>Select Game Mode</source>
+      </trans-unit>
+      <trans-unit id="23904345495656932" datatype="html">
+        <source>Classic Modes</source>
+      </trans-unit>
+      <trans-unit id="3553548818674023829" datatype="html">
+        <source>Limited Time Modes</source>
+      </trans-unit>
+      <trans-unit id="2415084703322817774" datatype="html">
+        <source>Limited Time Mode</source>
+      </trans-unit>
+      <trans-unit id="4053642316626108839" datatype="html">
+        <source>Game history</source>
+      </trans-unit>
+      <trans-unit id="801160565951900353" datatype="html">
+        <source>Game mode</source>
+      </trans-unit>
+      <trans-unit id="5570534463922203763" datatype="html">
+        <source>Winners</source>
+      </trans-unit>
+      <trans-unit id="7935270894786481838" datatype="html">
+        <source>Losers</source>
+      </trans-unit>
+      <trans-unit id="5046759576343540319" datatype="html">
+        <source>Quitters</source>
+      </trans-unit>
+      <trans-unit id="3770761673682962465" datatype="html">
+        <source>Start time</source>
+      </trans-unit>
+      <trans-unit id="4212919343775303870" datatype="html">
+        <source>Total time</source>
+      </trans-unit>
+      <trans-unit id="7792685669102967752" datatype="html">
+        <source>Number of differences: <x id="INTERPOLATION" equiv-text="{{ gameTemplate.nGroups }}"/></source>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+      </trans-unit>
+      <trans-unit id="8564202903947049539" datatype="html">
+        <source>Play</source>
+      </trans-unit>
+      <trans-unit id="2300645485435982958" datatype="html">
+        <source>Buy</source>
+      </trans-unit>
+      <trans-unit id="6295458739907778029" datatype="html">
+        <source>Creator: <x id="INTERPOLATION" equiv-text="{{ creator }}"/></source>
+      </trans-unit>
+      <trans-unit id="7944823709322600478" datatype="html">
+        <source>Players: <x id="INTERPOLATION" equiv-text="{{ players.join(&apos;, &apos;) }}"/></source>
+      </trans-unit>
+      <trans-unit id="8307140841776883735" datatype="html">
+        <source>Join</source>
+      </trans-unit>
+      <trans-unit id="2427310517199208513" datatype="html">
+        <source>Watch</source>
+      </trans-unit>
+      <trans-unit id="1000824486910893725" datatype="html">
+        <source>This game has observers</source>
+      </trans-unit>
+      <trans-unit id="6900453664633489001" datatype="html">
+        <source>This game does not have observers</source>
+      </trans-unit>
+      <trans-unit id="8606950142547890644" datatype="html">
+        <source>Confirm Purchase</source>
+      </trans-unit>
+      <trans-unit id="9178182467454450952" datatype="html">
+        <source>Confirm</source>
+      </trans-unit>
+      <trans-unit id="1132374519964049937" datatype="html">
+        <source>Access restricted</source>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+      </trans-unit>
+      <trans-unit id="6945945395354199350" datatype="html">
+        <source>Incorrect password. Please try again.</source>
+      </trans-unit>
+      <trans-unit id="5278627882107105833" datatype="html">
+        <source>Access</source>
+      </trans-unit>
+      <trans-unit id="7020126177840187171" datatype="html">
+        <source>Are you sure that you want to delete all game templates?</source>
+      </trans-unit>
+      <trans-unit id="5104771688983125649" datatype="html">
+        <source>This action is irreversible.</source>
+      </trans-unit>
+      <trans-unit id="1063462873103909661" datatype="html">
+        <source>Difficulty</source>
+      </trans-unit>
+      <trans-unit id="1015697357719978463" datatype="html">
+        <source>The number of differences should be between 3 and 9</source>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="7128079739772432392" datatype="html">
+        <source>Name of the game</source>
+      </trans-unit>
+      <trans-unit id="8894377483833272091" datatype="html">
+        <source>Price</source>
+      </trans-unit>
+      <trans-unit id="7448067575897089077" datatype="html">
+        <source>Price of the game</source>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+      </trans-unit>
+      <trans-unit id="6116346225726789838" datatype="html">
+        <source>Hard</source>
+      </trans-unit>
+      <trans-unit id="8037134183854795009" datatype="html">
+        <source>Easy</source>
+      </trans-unit>
+      <trans-unit id="1870003070334924329" datatype="html">
+        <source>Video replay</source>
+      </trans-unit>
+      <trans-unit id="3008420115644088420" datatype="html">
+        <source>Configuration</source>
+      </trans-unit>
+      <trans-unit id="7564668544925207637" datatype="html">
+        <source>Replays</source>
+      </trans-unit>
+      <trans-unit id="1225203534534338921" datatype="html">
+        <source>Replay</source>
+      </trans-unit>
+      <trans-unit id="1155053860402431780" datatype="html">
+        <source>No replays</source>
+      </trans-unit>
+      <trans-unit id="1236604279860679031" datatype="html">
+        <source>Restart</source>
+      </trans-unit>
+      <trans-unit id="9042260521669277115" datatype="html">
+        <source>Pause</source>
+      </trans-unit>
+      <trans-unit id="3128293408739574" datatype="html">
+        <source>Speed</source>
+      </trans-unit>
+      <trans-unit id="3133539296286953705" datatype="html">
+        <source>Stop</source>
+      </trans-unit>
+      <trans-unit id="6556292557629782923" datatype="html">
+        <source>Save and quit</source>
+      </trans-unit>
+      <trans-unit id="438066472250608638" datatype="html">
+        <source>Differences found</source>
+      </trans-unit>
+      <trans-unit id="1519954996184640001" datatype="html">
+        <source>Error</source>
+      </trans-unit>
+      <trans-unit id="1508654874508140297" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="t-icon&gt;"/>paid<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> <x id="INTERPOLATION" equiv-text="{{ hintPrice }}"/> buy Hint</source>
+      </trans-unit>
+      <trans-unit id="2169026643108558205" datatype="html">
+        <source>Quit game</source>
+      </trans-unit>
+      <trans-unit id="1191153680807886882" datatype="html">
+        <source>toggle cheat mode</source>
+      </trans-unit>
+      <trans-unit id="3599270617350436908" datatype="html">
+        <source>Send Hint To:</source>
+      </trans-unit>
+      <trans-unit id="2352285960504405462" datatype="html">
+        <source>Everyone</source>
+      </trans-unit>
+      <trans-unit id="9180651690870409771" datatype="html">
+        <source>Game Lobby</source>
+      </trans-unit>
+      <trans-unit id="3457118010656926707" datatype="html">
+        <source>Team Selection</source>
+      </trans-unit>
+      <trans-unit id="2699001472773373215" datatype="html">
+        <source>Team <x id="INTERPOLATION" equiv-text="{{ idx + 1 }}"/></source>
+      </trans-unit>
+      <trans-unit id="8329695025208514401" datatype="html">
+        <source>Accepted Players</source>
+      </trans-unit>
+      <trans-unit id="6338236010696010224" datatype="html">
+        <source>Players to select</source>
+      </trans-unit>
+      <trans-unit id="5162686434580248853" datatype="html">
+        <source>Start</source>
+      </trans-unit>
+      <trans-unit id="5613569962905186506" datatype="html">
+        <source>Number of players per team: 2</source>
+      </trans-unit>
+      <trans-unit id="18702249898472233" datatype="html">
+        <source>Minimum of two teams</source>
+      </trans-unit>
+      <trans-unit id="4608768985723413568" datatype="html">
+        <source>Not enough players or teams repartition invalid.</source>
+      </trans-unit>
+      <trans-unit id="1476196224644705540" datatype="html">
+        <source>Waiting for game master to accept you...</source>
+      </trans-unit>
+      <trans-unit id="2070842170886807851" datatype="html">
+        <source>The game master didn&apos;t choose you :(</source>
+      </trans-unit>
+      <trans-unit id="3724068243287682962" datatype="html">
+        <source>Team</source>
+      </trans-unit>
+      <trans-unit id="6898289324056696770" datatype="html">
+        <source>Number of players: <x id="PH" equiv-text="min"/>~<x id="PH_1" equiv-text="max"/></source>
+      </trans-unit>
+      <trans-unit id="5611592591303869712" datatype="html">
+        <source>Status</source>
+      </trans-unit>
+      <trans-unit id="4467323362722952678" datatype="html">
+        <source>Unknown</source>
+      </trans-unit>
+      <trans-unit id="3787050687842841344" datatype="html">
+        <source>Winner</source>
+      </trans-unit>
+      <trans-unit id="1285036046842740711" datatype="html">
+        <source>Loser</source>
+      </trans-unit>
+      <trans-unit id="3387197750091991711" datatype="html">
+        <source>Quitter</source>
+      </trans-unit>
+      <trans-unit id="4411010785416644211" datatype="html">
+        <source>Game Mode</source>
+      </trans-unit>
+      <trans-unit id="8497528947328199741" datatype="html">
+        <source>Time</source>
+      </trans-unit>
+      <trans-unit id="5248717555542428023" datatype="html">
+        <source>Username</source>
+      </trans-unit>
+      <trans-unit id="560293275795213258" datatype="html">
+        <source>Username invalid</source>
+      </trans-unit>
+      <trans-unit id="7059327960411975894" datatype="html">
+        <source>Disconnected if changed</source>
+      </trans-unit>
+      <trans-unit id="6780407325174304229" datatype="html">
+        <source>Locale</source>
+      </trans-unit>
+      <trans-unit id="7103588127254721505" datatype="html">
+        <source>Theme</source>
+      </trans-unit>
+      <trans-unit id="2134669369547593250" datatype="html">
+        <source>About this game</source>
+      </trans-unit>
+      <trans-unit id="2722906420868811730" datatype="html">
+        <source>Total number of differences</source>
+      </trans-unit>
+      <trans-unit id="3032353933722739484" datatype="html">
+        <source>Observers</source>
+      </trans-unit>
+      <trans-unit id="974387375615818050" datatype="html">
+        <source>No Observers</source>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+      </trans-unit>
+      <trans-unit id="4915431133669985304" datatype="html">
+        <source>Profile</source>
+      </trans-unit>
+      <trans-unit id="505212397934611533" datatype="html">
+        <source>Admin configurations</source>
+      </trans-unit>
+      <trans-unit id="3797778920049399855" datatype="html">
+        <source>Logout</source>
+      </trans-unit>
+      <trans-unit id="5763582944253803450" datatype="html">
+        <source>(you)</source>
+      </trans-unit>
+      <trans-unit id="381792157229582933" datatype="html">
+        <source>Remove friend</source>
+      </trans-unit>
+      <trans-unit id="2142062721718317578" datatype="html">
+        <source>Add friend</source>
+      </trans-unit>
+      <trans-unit id="8996989264763009906" datatype="html">
+        <source>Friend request pending</source>
+      </trans-unit>
+      <trans-unit id="2069656307285841086" datatype="html">
+        <source>Accept friend request</source>
+      </trans-unit>
+      <trans-unit id="1349602670564575903" datatype="html">
+        <source>Reject friend request</source>
+      </trans-unit>
+      <trans-unit id="2165523638254237081" datatype="html">
+        <source>Search players</source>
+      </trans-unit>
+      <trans-unit id="7251064998561142502" datatype="html">
+        <source>Game config</source>
+      </trans-unit>
+      <trans-unit id="4451528780123764379" datatype="html">
+        <source>Manage games</source>
+      </trans-unit>
+      <trans-unit id="1851232186658272799" datatype="html">
+        <source>Are you certain you would like to buy this game template for $</source>
+      </trans-unit>
+      <trans-unit id="186236568870281953" datatype="html">
+        <source>History</source>
+      </trans-unit>
+      <trans-unit id="4799205404322386870" datatype="html">
+        <source>PolyDiff</source>
+      </trans-unit>
+      <trans-unit id="8811067178131002666" datatype="html">
+        <source>Classic mode game selection</source>
+      </trans-unit>
+      <trans-unit id="5801676690179723464" datatype="html">
+        <source>Join a game</source>
+      </trans-unit>
+      <trans-unit id="4137620536783460158" datatype="html">
+        <source>Observe game</source>
+      </trans-unit>
+      <trans-unit id="611812606002722591" datatype="html">
+        <source>Login or register to continue</source>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+      </trans-unit>
+      <trans-unit id="7196360912393502967" datatype="html">
+        <source>You must enter a value</source>
+      </trans-unit>
+      <trans-unit id="987835788691705972" datatype="html">
+        <source>You must enter only lowercase letters and numbers</source>
+      </trans-unit>
+      <trans-unit id="4920413716414858011" datatype="html">
+        <source>The value must be <x id="PH" equiv-text="PASSWORD_MAX_LENGTH"/> characters or less</source>
+      </trans-unit>
+      <trans-unit id="4190634170116728013" datatype="html">
+        <source>Create a game</source>
+      </trans-unit>
+      <trans-unit id="6716648976867391309" datatype="html">
+        <source>Join or observe game</source>
+      </trans-unit>
+      <trans-unit id="6367751413467188072" datatype="html">
+        <source>Market</source>
+      </trans-unit>
+      <trans-unit id="2317115908406316389" datatype="html">
+        <source>Template creation</source>
+      </trans-unit>
+      <trans-unit id="2744649093721113192" datatype="html">
+        <source>Connexion history</source>
+      </trans-unit>
+      <trans-unit id="5290043218112844424" datatype="html">
+        <source>Replay history</source>
+      </trans-unit>
+      <trans-unit id="227749613426254192" datatype="html">
+        <source>seconds</source>
+      </trans-unit>
+      <trans-unit id="720557322859638078" datatype="html">
+        <source>You</source>
+      </trans-unit>
+      <trans-unit id="6230116932422979810" datatype="html">
+        <source>Access From</source>
+      </trans-unit>
+      <trans-unit id="3548321119891624524" datatype="html">
+        <source>Abandon</source>
+      </trans-unit>
+      <trans-unit id="1116173898665219180" datatype="html">
+        <source>Victory</source>
+      </trans-unit>
+      <trans-unit id="2648149712735009045" datatype="html">
+        <source>Defeat</source>
+      </trans-unit>
+      <trans-unit id="520135626193474545" datatype="html">
+        <source>Thanks for Watching</source>
+      </trans-unit>
+      <trans-unit id="5758836695765399542" datatype="html">
+        <source>You win!</source>
+      </trans-unit>
+      <trans-unit id="4421208939065204059" datatype="html">
+        <source>You lost!</source>
+      </trans-unit>
+      <trans-unit id="6834187406395954382" datatype="html">
+        <source>You gained $<x id="PH" equiv-text="endGameDto.pointsReceived"/></source>
+      </trans-unit>
+      <trans-unit id="4353724746526703154" datatype="html">
+        <source>You created a new high score</source>
+      </trans-unit>
+      <trans-unit id="7464666866149575185" datatype="html">
+        <source>Game over</source>
+      </trans-unit>
+      <trans-unit id="7998985151611292187" datatype="html">
+        <source>Thanks for playing!</source>
+      </trans-unit>
+      <trans-unit id="1156875931844965065" datatype="html">
+        <source>This game has been deleted</source>
+      </trans-unit>
+      <trans-unit id="2692192338169646997" datatype="html">
+        <source>You will be redirected to the home page</source>
+      </trans-unit>
+      <trans-unit id="27887745766444689" datatype="html">
+        <source><x id="PH" equiv-text="data.username"/> is now your friend!</source>
+      </trans-unit>
+      <trans-unit id="4266142093504769030" datatype="html">
+        <source><x id="PH" equiv-text="data.username"/> is no longer your friend.</source>
+      </trans-unit>
+      <trans-unit id="1316954411721370225" datatype="html">
+        <source><x id="PH" equiv-text="data.username"/> sent you a friend request!</source>
+      </trans-unit>
+      <trans-unit id="7224714626314361940" datatype="html">
+        <source><x id="PH" equiv-text="data.username"/> rejected your friend request.</source>
+      </trans-unit>
+      <trans-unit id="2539122471917809373" datatype="html">
+        <source>See my profile</source>
+      </trans-unit>
+      <trans-unit id="1683434620184560418" datatype="html">
+        <source>Theme changes saved</source>
+      </trans-unit>
+      <trans-unit id="2893166090739559510" datatype="html">
+        <source>Dto contains invalid field</source>
+      </trans-unit>
+      <trans-unit id="3839868994042381477" datatype="html">
+        <source>The base64 encoded images should be in bmp, jpg or png format</source>
+      </trans-unit>
+      <trans-unit id="8971155374291385269" datatype="html">
+        <source>Image not found</source>
+      </trans-unit>
+      <trans-unit id="6029332028737672729" datatype="html">
+        <source>Missing or bad JWT</source>
+      </trans-unit>
+      <trans-unit id="61864459477409402" datatype="html">
+        <source>Game template not found</source>
+      </trans-unit>
+      <trans-unit id="667574821351330083" datatype="html">
+        <source>Not enough money</source>
+      </trans-unit>
+      <trans-unit id="838417154751799619" datatype="html">
+        <source>Invalid ObjectId</source>
+      </trans-unit>
+      <trans-unit id="835509499480526821" datatype="html">
+        <source>Invalid page number, should be greater or equal to zero</source>
+      </trans-unit>
+      <trans-unit id="8288238877926002807" datatype="html">
+        <source>Invalid password</source>
+      </trans-unit>
+      <trans-unit id="744811716580486949" datatype="html">
+        <source>User already connected</source>
+      </trans-unit>
+      <trans-unit id="8237453520946506968" datatype="html">
+        <source>User already exists</source>
+      </trans-unit>
+      <trans-unit id="612189852938184698" datatype="html">
+        <source>User does not exist</source>
+      </trans-unit>
+      <trans-unit id="1381278753390268966" datatype="html">
+        <source>Cannot rename admin account</source>
+      </trans-unit>
+      <trans-unit id="3280858912572588238" datatype="html">
+        <source>Team Classic</source>
+      </trans-unit>
+      <trans-unit id="4167884304200973739" datatype="html">
+        <source>Limited Time Single Diff</source>
+      </trans-unit>
+      <trans-unit id="6682312624919098403" datatype="html">
+        <source>Classic Multiplayer</source>
+      </trans-unit>
+      <trans-unit id="7364238505476553834" datatype="html">
+        <source>Limited Time Augmented</source>
+      </trans-unit>
+      <trans-unit id="1368301440514902025" datatype="html">
+        <source>Limited Time Turn Based</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,8 @@
+<div #popoutWrapper class="popoutWrapper" [ngStyle]="innerWrapperStyle">
+    <button mat-raised-button *ngIf="!isPoppedOut" class="popOutButton" (click)="popOut($event)" [ngClass]="{ 'white-icon': whiteIcon }">
+        <mat-icon>open_in_new</mat-icon>
+    </button>
+    <div #innerWrapper class="innerWrapper" style="padding: 10px">
+        <ng-content></ng-content>
+    </div>
+</div>

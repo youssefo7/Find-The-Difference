@@ -1,0 +1,40 @@
+mat-card {
+    width: 100%;
+    aspect-ratio: 5/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card:hover {
+    filter: brightness(90%);
+    transition: 0.2s;
+}
+
+mat-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+    height: 30px;
+    overflow: hidden;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 10px;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+mat-icon {
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+}

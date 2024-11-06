@@ -1,0 +1,4 @@
+<div class="user-item">
+    <img [src]="avatarUrl" alt="User Avatar" class="avatar" />
+    <span>{{ username }}<ng-container *ngIf="isSelf" i18n>&nbsp;(you)</ng-container></span>
+</div>

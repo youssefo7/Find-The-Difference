@@ -1,0 +1,29 @@
+.thumbnail-container {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.preview-image {
+    width: 100%;
+}
+
+.info-card {
+    max-width: 370px;
+    height: 450;
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mat-icon {
+    margin: 0rem 10px;
+}

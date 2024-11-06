@@ -1,0 +1,31 @@
+$top-margin: 20px;
+
+div.popoutWrapper {
+    position: relative;
+    margin-top: $top-margin;
+    min-height: 30px;
+
+    button {
+        display: flex;
+        position: absolute;
+        top: calc(2px - $top-margin);
+        right: 2px;
+        z-index: 10;
+        background-color: transparent;
+        filter: opacity(50%);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            transition: filter 0.8s;
+            filter: opacity(100%);
+        }
+    }
+
+    div.innerWrapper {
+        height: calc(100% + 20px);
+        padding: 10px;
+        overflow: auto;
+    }
+}

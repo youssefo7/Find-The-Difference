@@ -1,0 +1,30 @@
+img {
+    border-radius: 50%;
+    width: 80px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-left: 8%;
+    padding-top: 15px;
+    height: 90px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 60px;
+}
+
+.user-list {
+    height: 280px;
+    overflow-y: auto;
+}
+.user-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

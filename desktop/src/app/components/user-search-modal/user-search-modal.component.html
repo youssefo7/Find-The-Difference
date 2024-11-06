@@ -1,0 +1,20 @@
+<mat-dialog-content class="mat-typography">
+    <mat-form-field class="search-bar" appearance="fill">
+        <mat-label i18n>Search players</mat-label>
+        <input matInput [(ngModel)]="searchQuery" />
+        @if (searchQuery) {
+            <button matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery = ''">
+                <mat-icon>close</mat-icon>
+            </button>
+        } @else {
+            <mat-icon matSuffix>search</mat-icon>
+        }
+    </mat-form-field>
+    <mat-list class="user-list">
+        <app-user-list-item *ngFor="let user of filteredUsers" [user]="user" (openProfile)="openUserProfile($event)"></app-user-list-item>
+    </mat-list>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button i18n mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

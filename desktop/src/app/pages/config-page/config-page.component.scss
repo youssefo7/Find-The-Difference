@@ -1,0 +1,89 @@
+.configurations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.config-container {
+    width: 515px;
+    text-align: left;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.mat-mdc-slider {
+    width: 25rem;
+}
+
+.display-container {
+    min-height: 825px;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+mat-tab-group {
+    width: 100%;
+}
+
+mat-tab {
+    flex: 1;
+}
+
+.small-text {
+    color: #3f51b5;
+}
+
+#new-game-button {
+    font-size: 150%;
+    padding: 3%;
+    min-width: 50%;
+    height: 71px;
+    letter-spacing: 0;
+}
+
+.container-game-manager {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.mode-button {
+    margin: 10px;
+}
+
+.reset-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#new-game-button {
+    background-color: green;
+    color: white;
+}
+
+.config-text {
+    margin: 0;
+}
+
+.full-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+::ng-deep .mat-mdc-tab-body-wrapper {
+    height: 100%;
+}
+
+app-title-bar {
+    width: 100%;
+}

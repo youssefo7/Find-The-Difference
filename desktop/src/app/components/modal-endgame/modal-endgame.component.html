@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{ data.texts[0] }}</h2>
+<div mat-dialog-content *ngFor="let value of data.texts.slice(1)">
+    <h3>{{ value }}</h3>
+</div>
+<mat-dialog-actions align="center">
+    <button mat-raised-button (click)="onGameReplay()" *ngIf="data.openReplayDialog">
+        <ng-container i18n>Video replay</ng-container>
+        <mat-icon>videocam</mat-icon>
+    </button>
+    <button i18n mat-raised-button (click)="onClose()">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,29 @@
+<div class="avatar-selection-page login-page">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-subtitle i18n>Choose an avatar</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="current-avatar" *ngIf="selectedAvatarUrl">
+                <img [src]="selectedAvatarUrl" alt="Current Avatar" class="avatar-image" />
+            </div>
+            <div class="avatar-options">
+                <div class="predefined-avatars">
+                    <div *ngFor="let avatar of predefinedAvatars" class="avatar" (click)="selectAvatar(avatar)">
+                        <img [src]="avatar" alt="Avatar" />
+                    </div>
+                </div>
+                <div class="upload-avatar">
+                    <input type="file" accept="image/png" id="fileInput" (change)="onAvatarSelected($event)" hidden #avatarInput />
+                    <button mat-raised-button color="accent" type="button" (click)="uploadAvatar($event)">
+                        <ng-container i18n>Upload your avatar</ng-container>
+                    </button>
+                    <button *ngIf="isEditing" mat-raised-button color="primary" (click)="saveAvatar()">
+                        <ng-container i18n>Save Avatar</ng-container>
+                    </button>
+                    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

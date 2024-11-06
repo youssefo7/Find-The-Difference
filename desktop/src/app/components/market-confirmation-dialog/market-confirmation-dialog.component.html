@@ -1,0 +1,8 @@
+<mat-dialog-content *ngIf="!!data && !!data.price">
+    <h1 i18n mat-dialog-title>Confirm Purchase</h1>
+    <p><ng-container i18n i18n>Are you certain you would like to buy this game template for $</ng-container>{{ data.price }}{{ ' ?' }}</p>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close i18n>Cancel</button>
+        <button mat-raised-button [mat-dialog-close]="true" i18n>Confirm</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

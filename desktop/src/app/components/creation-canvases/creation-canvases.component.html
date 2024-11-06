@@ -1,0 +1,85 @@
+<div class="creation-canvases">
+    <div class="images-container">
+        <mat-card appearance="outlined">
+            <mat-card-content class="canvas-container">
+                <canvas #leftBackgroundCanvas [width]="imageWidth" [height]="imageHeight"></canvas>
+                <canvas
+                    #leftForegroundCanvas
+                    class="foreground-canvas"
+                    [width]="imageWidth"
+                    [height]="imageHeight"
+                    (mousedown)="drawService.onMouseDown($event, imageClicked.Left)"
+                ></canvas>
+            </mat-card-content>
+
+            <mat-card-actions class="action-buttons">
+                <input hidden (change)="onFileSelected($event, 0)" #firstFileInput type="file" accept="image/bmp" />
+                <button
+                    i18n
+                    mat-raised-button
+                    color="primary"
+                    matTooltip="BMP {{ bmpBitDepth }}-bit de taille {{ imageWidth }}x{{ imageHeight }}"
+                    (click)="firstFileInput.click()"
+                    *ngIf="!firstImage"
+                >
+                    Choose the first image
+                </button>
+                <button mat-raised-button color="warn" (click)="resetBackgroundImage(0)" *ngIf="firstImage">
+                    <mat-icon>delete</mat-icon>
+                    <ng-container i18n>Background</ng-container>
+                </button>
+
+                <button mat-raised-button color="warn" (click)="drawService.resetCanvas(imageClicked.Left)">
+                    <mat-icon>delete</mat-icon>
+                    <ng-container i18n>Foreground</ng-container>
+                </button>
+
+                <button mat-raised-button color="primary" (click)="drawService.duplicateLeftCanvas()">
+                    <mat-icon>file_copy</mat-icon>
+                    <span i18n>Duplicate foreground</span>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card appearance="outlined">
+            <mat-card-content class="canvas-container">
+                <canvas #rightBackgroundCanvas [width]="imageWidth" [height]="imageHeight"> </canvas>
+                <canvas
+                    #rightForegroundCanvas
+                    class="foreground-canvas"
+                    [width]="imageWidth"
+                    [height]="imageHeight"
+                    (mousedown)="drawService.onMouseDown($event, imageClicked.Right)"
+                ></canvas>
+            </mat-card-content>
+            <mat-card-actions class="action-buttons">
+                <input hidden (change)="onFileSelected($event, 1)" #secondFileInput type="file" accept="image/bmp" />
+                <button
+                    i18n
+                    mat-raised-button
+                    color="primary"
+                    matTooltip="BMP {{ bmpBitDepth }}-bit de taille {{ imageWidth }}x{{ imageHeight }}"
+                    (click)="secondFileInput.click()"
+                    *ngIf="!secondImage"
+                >
+                    Choose the second image
+                </button>
+                <button mat-raised-button color="warn" (click)="resetBackgroundImage(1)" *ngIf="secondImage">
+                    <mat-icon>delete</mat-icon>
+                    <ng-container i18n>Background</ng-container>
+                </button>
+
+                <button mat-raised-button color="warn" (click)="drawService.resetCanvas(imageClicked.Right)">
+                    <mat-icon>delete</mat-icon>
+                    <ng-container i18n>Foreground</ng-container>
+                </button>
+
+                <button mat-raised-button color="primary" (click)="drawService.duplicateRightCanvas()">
+                    <mat-icon>file_copy</mat-icon>
+                    <span i18n>Duplicate foreground</span>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <app-creation-toolbar [modalOpen]="modalOpen" (fileSelected)="onFileSelected($event, 2)" (refreshDiff)="refreshDiff()"></app-creation-toolbar>
+</div>

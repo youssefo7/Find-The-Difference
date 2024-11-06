@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>
+    <ng-container i18n>Differences</ng-container>
+    : {{ differenceDialogData.nGroups }}
+</h2>
+<h2 mat-dialog-title *ngIf="isValidDifferenceNumber">
+    <ng-container i18n>Difficulty</ng-container>
+    : {{ difficultyString }}
+</h2>
+<h3 i18n mat-dialog-title class="error-message" *ngIf="!isValidDifferenceNumber">The number of differences should be between 3 and 9</h3>
+<mat-dialog-content>
+    <canvas #differenceCanvas [attr.width]="imageWidth" [attr.height]="imageHeight"></canvas>
+    <div class="form-fields-container" *ngIf="isValidDifferenceNumber">
+        <mat-form-field class="game-name-input" appearance="fill">
+            <mat-label i18n>Name</mat-label>
+            <input
+                matInput
+                i18n-placeholder
+                placeholder="Name of the game"
+                [(ngModel)]="gameName"
+                [disabled]="isSubmitted"
+                (change)="gameName = gameName.trim()"
+                [maxLength]="maxGameTemplateNameLength"
+            />
+            <mat-hint>{{ gameName.length }}/{{ maxGameTemplateNameLength }}</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label i18n>Price</mat-label>
+            <input
+                matInput
+                i18n-placeholder
+                placeholder="Price of the game"
+                class="price-input"
+                type="number"
+                min="{{ minimumGamePrice }}"
+                [(ngModel)]="gamePrice"
+                [disabled]="isSubmitted"
+            />
+            <mat-icon matPrefix>paid</mat-icon>
+            <mat-error *ngIf="priceFormFieldHasError"> The price should be at least {{ minimumGamePrice }} $ </mat-error>
+        </mat-form-field>
+    </div>
+    <mat-dialog-actions align="end">
+        <button i18n mat-button [matDialogClose]="false" [disabled]="isSubmitted">Cancel</button>
+        <button i18n mat-button [disabled]="!canSaveGame" (click)="saveGame()">Save</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

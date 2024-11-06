@@ -1,0 +1,13 @@
+<app-title-bar></app-title-bar>
+<mat-tab-group>
+    <mat-tab i18n-label label="Join a game">
+        <div id="container">
+            <app-game-selection-carousel [configMode]="infoCardConfigJoin"></app-game-selection-carousel>
+        </div>
+    </mat-tab>
+    <mat-tab i18n-label label="Observe game">
+        <div id="container">
+            <app-game-selection-carousel [configMode]="infoCardConfigWatch"></app-game-selection-carousel>
+        </div>
+    </mat-tab>
+</mat-tab-group>

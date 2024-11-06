@@ -1,0 +1,7 @@
+<h1 mat-dialog-title color="primary" i18n>Configuration</h1>
+<div mat-dialog-content>
+    <app-config-parameters [(config)]="timeConfig" [showBonusTimeSlider]="!isTimeLimitTurnByTurn"></app-config-parameters>
+    <mat-dialog-actions>
+        <button i18n mat-raised-button [disabled]="!data.gameMode" (click)="createGame()" i18n>Create</button>
+    </mat-dialog-actions>
+</div>

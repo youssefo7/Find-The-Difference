@@ -1,0 +1,25 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    justify-content: space-evenly;
+}
+
+.logo {
+    border-radius: 10px;
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 150%;
+    padding: 3%;
+    min-width: 35%;
+    margin: 10px;
+    height: 68px !important;
+    letter-spacing: 0;
+}

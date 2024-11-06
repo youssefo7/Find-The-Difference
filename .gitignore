@@ -1,0 +1,26 @@
+#ignoring .vscode folder but we keep some files for debuging
+/.vscode/chrome
+/.vs/
+
+mobile/android/.gradle/
+mobile/.flutter-plugins-dependencies
+mobile/.flutter-plugins
+mobile/.dart_tool/
+mobile/build/
+package-lock.json
+.DS_Store
+
+# Code Coverage Folder
+coverage/
+
+#Node Modules
+/node_modules
+
+.~lock.*
+~$*
+.idea/
+.env
+
+.eslintcache
+.fuse_hidden*
+*.spec.ts

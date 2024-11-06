@@ -1,0 +1,26 @@
+<div class="create-game-modal">
+  <h2 i18n>Select Game Mode</h2>
+  
+  <div class="game-mode-section">
+      <h3 i18n>Classic Modes</h3>
+      <button mat-raised-button color="primary" (click)="selectMode(gameModes.ClassicMultiplayer)">
+        {{gameModeToString(gameModes.ClassicMultiplayer)}}
+      </button>
+      <button mat-raised-button color="primary" (click)="selectMode(gameModes.TeamClassic)">
+        {{gameModeToString(gameModes.TeamClassic)}}
+      </button>
+  </div>
+
+  <div class="game-mode-section">
+      <h3 i18n>Limited Time Modes</h3>
+      <button mat-raised-button color="accent" (click)="selectMode(gameModes.TimeLimitAugmented)">
+        {{gameModeToString(gameModes.TimeLimitAugmented)}}
+      </button>
+      <button mat-raised-button color="accent" (click)="selectMode(gameModes.TimeLimitSingleDiff)">
+        {{gameModeToString(gameModes.TimeLimitSingleDiff)}}
+      </button>
+      <button mat-raised-button color="accent" (click)="selectMode(gameModes.TimeLimitTurnByTurn)">
+        {{gameModeToString(gameModes.TimeLimitTurnByTurn)}}
+      </button>
+  </div>
+</div>

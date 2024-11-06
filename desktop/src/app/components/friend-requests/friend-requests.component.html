@@ -1,0 +1,18 @@
+<ng-container *ngIf="incomingFriendRequests$ | async as requests">
+    <ng-container *ngIf="requests.length > 0">
+        <div class="container">
+            <div *ngIf="requests.length > 0" class="list-header">
+                <h2 i18n>Friend requests</h2>
+            </div>
+            <div class="list-container">
+                <mat-list>
+                    <app-user-list-item
+                        *ngFor="let request of requests"
+                        [user]="getUser(request)"
+                        (openProfile)="openUserProfile($event)"
+                    ></app-user-list-item>
+                </mat-list>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

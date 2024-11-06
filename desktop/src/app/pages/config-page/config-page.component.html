@@ -1,0 +1,15 @@
+
+<app-title-bar i18n-title title="Game config"></app-title-bar>
+<div class="display-container">
+    <mat-tab-group mat-stretch-tabs="true">
+        <mat-tab i18n-label label="Manage games">
+            <div class="container-game-manager">
+                <app-game-selection-carousel [configMode]="configMode"></app-game-selection-carousel>
+                <mat-divider [vertical]="true"></mat-divider>
+            </div>
+        </mat-tab>
+        <mat-tab i18n-label label="History">
+            <app-history></app-history>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,15 @@
+<mat-card appearance="outlined" class="info-card">
+    <mat-card-header>
+        <mat-card-title class="card-title">{{ gameModeToString(gameMode) }}</mat-card-title>
+        <mat-card-title class="card-title" *ngIf="isLobbyCard" i18n>Creator: {{ creator }}</mat-card-title>
+        <mat-card-title class="card-title" i18n>Players: {{ players.join(', ') }}</mat-card-title>
+        <mat-card-title class="card-title" *ngIf="nDiffs" i18n>Number of differences: {{ nDiffs }}</mat-card-title>
+        <mat-card-title class="card-title" *ngIf="!isLobbyCard">{{ observersText }}</mat-card-title>
+    </mat-card-header>
+    <div class="thumbnail-container">
+        <img mat-card-image class="preview-image" alt="Preview image" [src]="thumbnail" [ngStyle]="{ 'aspect-ratio': aspectRatio }" />
+    </div>
+    <mat-card-actions class="action-buttons">
+        <button mat-raised-button color="primary" (click)="joinWaitingGame()">{{ buttonText }}</button>
+    </mat-card-actions>
+</mat-card>

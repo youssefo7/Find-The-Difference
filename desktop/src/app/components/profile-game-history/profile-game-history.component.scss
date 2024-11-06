@@ -1,0 +1,14 @@
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+    padding-right: 20px;
+    max-width: 16.5%;
+    overflow-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+    text-align: start;
+}

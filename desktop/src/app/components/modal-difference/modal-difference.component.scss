@@ -1,0 +1,23 @@
+.error-message {
+    color: red;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+.form-fields-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+input.price-input::-webkit-outer-spin-button,
+input.price-input::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.price-input {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}

@@ -1,0 +1,270 @@
+stages:
+    - lint
+    - upload
+    - deploy
+    - release
+
+.desktop-cache: &desktop-cache
+    cache:
+        key: 'desktop'
+        paths:
+            - desktop/node_modules/
+            - desktop/.npm/
+            - desktop/.eslintcache
+        policy: pull-push
+
+.only-desktop: &only-desktop
+    image: node:lts-iron
+    needs: []
+    <<: *desktop-cache
+    only:
+        refs:
+            - main
+            - merge_requests
+        changes:
+            - desktop/**/*
+            - common/**/*
+            - .gitlab-ci.yml
+
+.server-cache: &server-cache
+    cache:
+        key: 'server'
+        paths:
+            - server/node_modules/
+            - server/.npm/
+        policy: pull-push
+
+.only-server: &only-server
+    image: node:lts-iron
+    needs: []
+    <<: *server-cache
+    only:
+        refs:
+            - main
+            - merge_requests
+        changes:
+            - server/**/*
+            - common/**/*
+            - .gitlab-ci.yml
+
+.mobile-cache: &mobile-cache
+    cache:
+        key: 'mobile'
+        paths:
+            - $CI_PROJECT_DIR/mobile/.pub-cache/
+        policy: pull-push
+    before_script:
+        - export PUB_CACHE=$CI_PROJECT_DIR/mobile/.pub-cache
+        - export PATH="$PATH":"$PUB_CACHE/bin"
+
+.only-mobile: &only-mobile
+    image: 'ghcr.io/cirruslabs/flutter:3.16.9'
+    needs: []
+    <<: *mobile-cache
+    only:
+        refs:
+            - main
+            - merge_requests
+        changes:
+            - mobile/**/*
+            - .gitlab-ci.yml
+
+lint:desktop:
+    stage: lint
+    allow_failure: true
+    <<: *only-desktop
+    script:
+        - cd desktop
+        - npm ci --include=optional
+        - npm run lint
+
+lint:mobile:
+    stage: lint
+    <<: *only-mobile
+    script:
+        - cd mobile
+        - flutter packages get
+        - dart analyze --fatal-infos
+        - dart format --output none --set-exit-if-changed lib
+
+lint:server:
+    stage: lint
+    allow_failure: true
+    <<: *only-server
+    script:
+        - cd server
+        - npm ci --cache .npm --prefer-offline
+        - npm run build
+        - npm run lint
+
+pages:
+    stage: deploy
+    image: node:lts-iron
+    <<: *desktop-cache
+    rules:
+        - if: $CI_COMMIT_TAG
+    script:
+        - cd desktop
+        - npm ci --cache .npm --prefer-offline
+        - npm run build:website -- --base-href $BASE_HREF
+        - mkdir ../public
+        - mv dist/client/* ../public/
+        - gzip -k -9 -r ../public
+        - printf '/ /en 301' >> ../public/_redirects
+    artifacts:
+        paths:
+            - public
+
+variables:
+    EC2_USER: ec2-user
+    ORIGIN: 'https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}'
+    # Package version should match \A(\.?[\w\+-]+\.?)+\z regular expresion.
+    # See https://docs.gitlab.com/ee/user/packages/generic_packages/#publish-a-package-file
+    PACKAGE_VERSION: $CI_COMMIT_TAG
+    DESKTOP_BINARY: 'PolyDiff-win32-x64.zip'
+    ANDROID_BINARY: 'app-release.apk'
+    PACKAGE_REGISTRY_URL: '${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/PolyDiff/${PACKAGE_VERSION}'
+    SERVER_URL: https://server.leobc.top/api
+    WS_URL: wss://server.leobc.top
+
+deploy:server:
+    stage: deploy
+    image: alpine:latest
+    rules:
+        - if: $CI_COMMIT_TAG
+    script:
+        - 'which ssh-agent || apk add --no-cache openssh'
+        - eval $(ssh-agent -s)
+        - ssh-add <(echo "$EC2_PEM_FILE_CONTENT")
+        - mkdir -p ~/.ssh
+        - ssh-keyscan -t ssh-ed25519 ${EC2_HOST} >> ~/.ssh/known_hosts
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+        - |
+            timeout 600 ssh -t -o ServerAliveInterval=15 -o ServerAliveCountMax=5 "${EC2_USER}@${EC2_HOST}" "
+                set -e
+
+                echo 'Update repository cache'
+                sudo yum update -y
+
+                echo 'Setting up swap memory'
+                if test -f '/swapfile'
+                then
+                    echo 'swap memory is already configured, skipping...'
+                else
+                    sudo dd if=/dev/zero of=/swapfile bs=128M count=16
+                    sudo chmod 600 /swapfile
+                    sudo mkswap -f /swapfile
+                    sudo swapon /swapfile
+                    echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
+                fi
+
+                echo 'Setting up git'
+                if which git &> /dev/null
+                then
+                    echo 'git is already installed, skipping...'
+                else
+                    sudo yum install -y git
+                fi
+
+                echo 'Setting up node'
+                if which node &> /dev/null
+                then
+                    echo 'node is already installed, skipping...'
+                else
+                    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+                    source ~/.nvm/nvm.sh
+                    nvm install 20
+                    nvm alias default 20
+                fi
+
+                echo 'Setting up forever'
+                if which forever &> /dev/null
+                then
+                    echo 'forever is already installed, skipping...'
+                else
+                    npm install forever -g
+                fi
+
+                echo 'Setting up awslogs'
+                if yum list installed awslogs &> /dev/null
+                then
+                    echo 'awslogs is already installed, skipping...'
+                # else
+                #     sudo yum install -y awslogs
+                #     echo '[plugins]'             | sudo tee /etc/awslogs/awscli.conf
+                #     echo 'cwlogs = cwlogs'       | sudo tee -a /etc/awslogs/awscli.conf
+                #     echo '[default]'             | sudo tee -a /etc/awslogs/awscli.conf
+                #     echo 'region = ca-central-1' | sudo tee -a /etc/awslogs/awscli.conf
+                #     sudo systemctl enable awslogsd.service
+                #     sudo systemctl start awslogsd
+                #     sudo chmod 777 /var/log/messages
+                fi
+
+                set -xv
+
+                # Force kill any node app or any app running on the server port
+                forever stopall && sudo fuser -k '${SERVER_PORT}/tcp' && sudo killall node
+
+                # Clone the repository
+                git clone ${ORIGIN} repo || echo Git repository already exist
+                cd repo
+
+                # Update the remote origin
+                # This action is important because the CI_JOB_TOKEN become invalid after each pipeline
+                git remote remove origin
+                git remote add origin ${ORIGIN}
+
+                # Checkout to the targeted commit
+                git fetch --all
+                git checkout ${CI_COMMIT_SHA}
+
+                # Build the project
+                cd server
+                npm ci
+                npm run build
+
+                # Launch the server in background and append output to /var/log/messages for CloudWatch
+                PORT=${SERVER_PORT} forever start -a -l /var/log/messages out/server/app/index.js
+            "
+
+upload:desktop:
+    stage: upload
+    image: kugiyasan/alpine-wine64:latest
+    <<: *desktop-cache
+    rules:
+        - if: $CI_COMMIT_TAG
+    script:
+        - cd desktop
+        - npm ci --cache .npm --prefer-offline
+        - npm run build:electron_windows
+        - cd build
+        - mkdir ../../build
+        - zip -r ../../build/${DESKTOP_BINARY} PolyDiff-win32-x64
+        - |
+            curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ../../build/${DESKTOP_BINARY} ${PACKAGE_REGISTRY_URL}/${DESKTOP_BINARY}
+
+upload:mobile:
+    stage: upload
+    image: 'ghcr.io/cirruslabs/flutter:3.16.9'
+    <<: *mobile-cache
+    rules:
+        - if: $CI_COMMIT_TAG
+    script:
+        - cd mobile
+        - flutter build apk --build-name=$PACKAGE_VERSION --dart-define=SERVER_URL=$SERVER_URL --dart-define=WS_URL=$WS_URL
+        - |
+            curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file build/app/outputs/flutter-apk/${ANDROID_BINARY} ${PACKAGE_REGISTRY_URL}/${ANDROID_BINARY}
+
+release:
+    # Caution, as of 2021-02-02 these assets links require a login, see:
+    # https://gitlab.com/gitlab-org/gitlab/-/issues/299384
+    stage: release
+    image: registry.gitlab.com/gitlab-org/release-cli:latest
+    needs: ['upload:desktop', 'upload:mobile']
+    rules:
+        - if: $CI_COMMIT_TAG
+    script:
+        - |
+            release-cli create --name "Release $CI_COMMIT_TAG" --tag-name $CI_COMMIT_TAG \
+                --assets-link "{\"name\":\"${DESKTOP_BINARY}\",\"url\":\"${PACKAGE_REGISTRY_URL}/${DESKTOP_BINARY}\"}" \
+                --assets-link "{\"name\":\"${ANDROID_BINARY}\",\"url\":\"${PACKAGE_REGISTRY_URL}/${ANDROID_BINARY}\"}"

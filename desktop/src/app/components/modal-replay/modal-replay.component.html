@@ -1,0 +1,28 @@
+<div id="container">
+    <mat-slider color="primary" [max]="stepCount" [min]="0" [step]="1" #ngSlider
+        ><input matSliderThumb [value]="fraction" (dragEnd)="fraction = ngSliderThumb.value" #ngSliderThumb="matSliderThumb" />
+    </mat-slider>
+</div>
+<div>
+    <button color="primary" mat-fab (click)="restartReplay()" i18n-matTooltip matTooltip="Restart">
+        <mat-icon style="color: white">fast_rewind</mat-icon>
+    </button>
+    @if (isReplaying) {
+        <button color="primary" mat-fab (click)="onPausePlayClick()" i18n-matTooltip matTooltip="Pause">
+            <mat-icon style="color: white">pause</mat-icon>
+        </button>
+    } @else {
+        <button color="primary" mat-fab (click)="onPausePlayClick()" i18n-matTooltip matTooltip="Play">
+            <mat-icon style="color: white">play_arrow</mat-icon>
+        </button>
+    }
+    <button mat-button color="primary" (click)="changeReplaySpeed()" i18n-matTooltip matTooltip="Speed">{{ speedButtonText }}</button>
+    <button color="primary" mat-fab routerLink="/home" (click)="closeReplay()" i18n-matTooltip matTooltip="Stop" style="color: white">
+        <mat-icon>home</mat-icon>
+    </button>
+    @if (!this.isLoaded) {
+        <button color="primary" mat-fab routerLink="/home" (click)="saveAndQuit()" i18n-matTooltip matTooltip="Save and quit">
+            <mat-icon style="color: white">save</mat-icon>
+        </button>
+    }
+</div>

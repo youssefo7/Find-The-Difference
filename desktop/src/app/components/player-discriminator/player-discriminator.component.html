@@ -1,0 +1,69 @@
+<mat-card class="lobby-wrapper" *ngIf="!isWaitingForAcceptance">
+    <mat-card-header>
+        <mat-card-title i18n>Game Lobby</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div *ngIf="gameMode === 'teamClassic'" class="team-selection">
+            <h2 i18n>Team Selection</h2>
+            <mat-radio-group class="team-radio-group" [value]="currentTeam">
+                <div *ngFor="let team of teams; let idx = index" class="team-container">
+                    <mat-radio-button class="radius-radio-button" color="primary" [value]="idx" (change)="onTeamChange(idx)">
+                        <h3 i18n class="team-title">Team {{ idx + 1 }}</h3>
+                        <app-user-item *ngFor="let player of getTeamPlayers(idx)" [username]="player"></app-user-item>
+                    </mat-radio-button>
+                </div>
+            </mat-radio-group>
+        </div>
+
+        <div class="player-list" *ngIf="gameMode !== 'teamClassic'">
+            <h2 i18n>Accepted Players</h2>
+            <ul class="accepted-players-list">
+                <li *ngFor="let player of players" class="discriminated-player">
+                    <app-user-item [username]="player"></app-user-item>
+                </li>
+            </ul>
+        </div>
+
+        @if (isGameMaster) {
+            <div class="player-requests">
+                <h2 i18n>Players to select</h2>
+                <ul class="player-requests-list">
+                    <li *ngFor="let player of requests" class="discriminated-player">
+                        <app-user-item [username]="player"></app-user-item>
+                        <div>
+                            <button mat-icon-button (click)="approvePlayer(player)">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="removePlayer(player)">
+                                <mat-icon>clear</mat-icon>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="start-game">
+                <button mat-raised-button [disabled]="!isReady()" (click)="startGame()" i18n>Start</button>
+            </div>
+
+            @if (isTeamClassic()) {
+                <div i18n class="centered-text">Number of players per team: 2</div>
+                <div i18n class="centered-text">Minimum of two teams</div>
+            } @else {
+                <div class="centered-text">{{ getNumberOfPlayersLabel() }}</div>
+            }
+
+            @if (showError) {
+                <div class="error-message">
+                    <p i18n>Not enough players or teams repartition invalid.</p>
+                </div>
+            }
+        }
+    </mat-card-content>
+</mat-card>
+<div *ngIf="isWaitingForAcceptance" class="waiting-for-acceptance">
+    <mat-spinner class="spinner"></mat-spinner>
+    <div class="waiting-text">
+        <p i18n>Waiting for game master to accept you...</p>
+    </div>
+</div>

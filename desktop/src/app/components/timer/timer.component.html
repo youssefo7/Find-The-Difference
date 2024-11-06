@@ -1,0 +1,10 @@
+<div class="timer">
+    <mat-icon inline>alarm</mat-icon>
+    {{ formatTime(timeSeconds) }}
+</div>
+@if (has2Clocks) {
+    <div class="timer">
+        <mat-icon inline>alarm</mat-icon>
+        {{ formatTime(timeSecondsOtherTeam) }}
+    </div>
+}

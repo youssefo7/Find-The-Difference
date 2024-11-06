@@ -1,0 +1,99 @@
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+.icon-button mat-icon {
+    color: var(--primary-contrast-500);
+}
+
+.icon-button mat-icon:hover {
+    filter: brightness(90%);
+    transition: 0.2s;
+}
+
+#avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 6px 6px rgba(0,0,0,0.24);
+}
+
+.user-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-container {
+    padding: 5px 63px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.title-content {
+    font-size: 30px;
+}
+
+.logo {
+    border-radius: 5px;
+}
+
+.user-icon {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+button.mat-fab {
+    padding: 0;
+    box-shadow: none;
+}
+
+#balance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 10px;
+}
+
+#balance p {
+    margin: 0;
+    line-height: 1;
+}
+
+app-chat {
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    right: 0;
+}
+
+#logout-button {
+    color: warn;
+}

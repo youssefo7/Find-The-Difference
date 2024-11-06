@@ -1,0 +1,15 @@
+<div class="colors-container">
+    <button mat-raised-button [style.background-color]="color" [style.color]="textColor" (click)="colorInput.click()">
+        <mat-icon>color_lens</mat-icon>
+        <ng-container i18n>Choose color</ng-container>
+    </button>
+    <input hidden #colorInput type="color" [value]="color" (change)="onSelectedColorChange($event)" />
+
+    <article class="base-colors-container">
+        <div *ngFor="let row of baseColors" class="base-colors-row">
+            <div *ngFor="let baseColor of row" class="base-colors">
+                <button mat-mini-fab [style.background-color]="baseColor" (click)="onBaseColorClick(baseColor)"></button>
+            </div>
+        </div>
+    </article>
+</div>
